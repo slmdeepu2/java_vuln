@@ -17,7 +17,7 @@ jobs:
       with:
         java-version: '11'
     - name: Analyze with SonarCloud
-      run: mvn -B verify sonar:sonar -Dsonar.projectKey=SAST-POC -Dsonar.organization=slmdeepu2 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=717f72c9c01932013ad042bfb7770494f56155be
+      run: mvn -B verify sonar:sonar -Dsonar.login=b121b12dce635a7559e273c8eaf697dbd9b48357 -Dsonar.projectKey=SAST-POC -Dsonar.organization=slmdeepu2 -Dsonar.host.url=https://sonarcloud.io 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
