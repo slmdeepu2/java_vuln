@@ -21,4 +21,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Maven Verify
-      run: mvn org.sonarsource.scanner.maven:sonar
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
