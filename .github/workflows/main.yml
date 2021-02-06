@@ -21,4 +21,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Maven Verify
-      run: mvn sonar:sonar -Dsonar.login=ddc0fc4e5edb1bf7ea1bb321efa2a1e2ea9300dc -Dsonar.host.url=http://sonarcloud.io -Dsonar.projectKey=SAST-POC-VULN
+      run: mvn org.sonarsource.scanner.maven:sonar -Dsonar.login=ddc0fc4e5edb1bf7ea1bb321efa2a1e2ea9300dc -Dsonar.host.url=http://sonarcloud.io -Dsonar.projectKey=SAST-POC-VULN
