@@ -8,18 +8,16 @@ on:
       types: [opened, synchronize, reopened]
 name: Main Workflow
 jobs:
-  sonarcloud:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-16.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
+    - name: Set up JDK
+      uses: actions/setup-java@v1
       with:
-        # Disabling shallow clone is recommended for improving relevancy of reporting
-        fetch-depth: 0
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
+        java-version: '11'
+    - name: Analyze with SonarCloud
+      run: ./mvnw -B verify sonar:sonar -Dsonar.projectKey=SAST-POC -Dsonar.host.url=https://sonarcloud.io
       env:
-        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    - name: Maven Verify
-      run: sonar-scanner -Dsonar.login=ddc0fc4e5edb1bf7ea1bb321efa2a1e2ea9300dc -Dsonar.host.url=http://sonarcloud.io
-      #run: mvn -B verify org.sonarsource.scanner.maven:sonar -Dsonar.login=ddc0fc4e5edb1bf7ea1bb321efa2a1e2ea9300dc -Dsonar.host.url=http://sonarcloud.io -Dsonar.projectKey=SAST-POC-VULN
