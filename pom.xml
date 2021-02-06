@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.github.rafaelrpinto</groupId>
-	<artifactId>vulnerablejavawebapp</artifactId>
+	<artifactId>vulnerablejavaweb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<parent>
@@ -14,6 +14,11 @@
 	</parent>
 
 	<properties>
+                <sonar.projectKey>slmdeepu2_java_vuln</sonar.projectKey>
+                <sonar.organization>slmdeepu2</sonar.organization>
+                <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.sources>.</sonar.sources>
+                <sonar.inclusions>src/main/java/com/github/rafaelrpinto/vulnerablejavawebapp/model/Advertisement.java</sonar.inclusions>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
