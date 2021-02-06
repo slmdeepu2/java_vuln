@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-16.04
     steps:
     - uses: actions/checkout@v1
+    - uses: sonarsource/sonarcloud-github-action@master
+      with:
+        projectBaseDir: src/main
     - name: Set up JDK
       uses: actions/setup-java@v1
       with:
